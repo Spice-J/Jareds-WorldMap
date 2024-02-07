@@ -5,3 +5,8 @@
 .worldmap {
     width: 100%;
 }
+
+.information {
+    margin: 1rem 1rem;
+    padding: 0 3rem ;
+}

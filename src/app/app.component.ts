@@ -15,5 +15,5 @@ import { InfosectionComponent } from './infosection/infosection.component';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'd280pa';
+  title: string = 'World Map';
 }
