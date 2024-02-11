@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
     selector: 'app-world-map',
@@ -7,6 +7,10 @@ import { Component } from '@angular/core';
     templateUrl: './world-map.component.svg',
     styleUrl: './world-map.component.css'
 })
-export class SvgMap {
+export class SvgMap implements OnInit {
+    constructor() {}
 
+    ngOnInit(): void {
+        
+    }
 }

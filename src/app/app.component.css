@@ -3,10 +3,13 @@
 }
 
 .worldmap {
-    width: 100%;
+    width: 90%;
+    padding: 0 3rem;
 }
 
 .information {
     margin: 1rem 1rem;
-    padding: 0 3rem ;
+    padding: 2rem 3rem ;
+    background-color: beige;
+    height: min-content;
 }

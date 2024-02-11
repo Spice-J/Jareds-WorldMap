@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SvgMap } from './worldmap/world-map.component';
-import { InfosectionComponent } from './infosection/infosection.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PostComponent } from './post/post.component';
 
 @Component({
   selector: 'app-root',
@@ -9,11 +10,10 @@ import { InfosectionComponent } from './infosection/infosection.component';
   imports: [
     RouterOutlet,
     SvgMap,
-    InfosectionComponent
+    HttpClientModule,
+    PostComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
-export class AppComponent {
-  title: string = 'World Map';
-}
+export class AppComponent {}
