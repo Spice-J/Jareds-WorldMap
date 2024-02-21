@@ -3,7 +3,6 @@
 }
 
 .worldmap {
-<<<<<<< HEAD
     width: 90%;
     padding: 0 3rem;
 }
@@ -13,7 +12,4 @@
     padding: 2rem 3rem ;
     background-color: beige;
     height: min-content;
-=======
-    width: 100%;
->>>>>>> parent of 7518474 (Change title to World Map in index.html and app.component.ts. Enter some global css to styles.css. Add margin and padding to information div in app.component.css.)
 }

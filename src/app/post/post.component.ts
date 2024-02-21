@@ -8,7 +8,7 @@ import { Component, OnInit, inject } from '@angular/core';
   templateUrl: './post.component.html',
   styleUrl: './post.component.css'
 })
-export class PostComponent implements OnInit{
+export class PostComponent{
   
   //information header
   header: string = 'Country Data';
@@ -17,13 +17,15 @@ export class PostComponent implements OnInit{
   http = inject(HttpClient);
   posts: any = [];
 
-  ngOnInit(): void {
+  /*ngOnInit(): void {
     this.fetchPosts();
   }
   fetchPosts() {
-    this.http.get('http://api.worldbank.org/v2/country/?format=json').subscribe((posts: any) => {
+    this.http.get('http://api.worldbank.org/v2/country/us?format=json').subscribe((posts: any) => {
       console.log(posts);
       this.posts = posts;
     })
-  }
+  }*/
+
+
 }
