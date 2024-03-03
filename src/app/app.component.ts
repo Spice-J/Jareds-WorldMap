@@ -13,7 +13,7 @@ import { SvgMap } from './worldmap/world-map.component';
 export class AppComponent {
   title = `Jared's World Map`;
 
-  
+  clickedCountry: any = null;
   
   
 }

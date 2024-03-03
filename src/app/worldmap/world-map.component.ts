@@ -3,6 +3,7 @@ import { Component, ElementRef, EventEmitter, OnInit, Output, ViewChild, Rendere
 import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { error } from 'console';
 import { ApiService } from '../api.service';
+import { emit } from 'process';
 
 
 
@@ -19,6 +20,7 @@ export class SvgMap implements OnInit {
     svgContainer!: ElementRef;
     svgContent!: SafeHtml;
     selectedCountryData: any = null;
+    @Output() clickedCountry = new EventEmitter();
 
     constructor(private http: HttpClient, private apiService: ApiService, private sanitizer: DomSanitizer, private renderer: Renderer2) {};
 
@@ -39,15 +41,18 @@ export class SvgMap implements OnInit {
     }
 
     addHoverEffect(): void {
-        const svgElement: SVGElement = this.svgContainer.nativeElement.querySelector('svg');
-        const paths = svgElement.querySelectorAll('path');
+        const svgElement: SVGElement | null = this.svgContainer.nativeElement.querySelector('svg');
+        
+        if(svgElement) {
+            const paths = svgElement.querySelectorAll('path');
 
-        const pathsArray = Array.from(paths);
+            const pathsArray = Array.from(paths);
 
-        pathsArray.forEach(path => {
-            path.addEventListener('mouseenter', this.onMouseEnter);
-            path.addEventListener('mouseleave', this.onMouseLeave);
-        })
+            pathsArray.forEach(path => {
+                path.addEventListener('mouseenter', this.onMouseEnter);
+                path.addEventListener('mouseleave', this.onMouseLeave);
+            })
+        }
     }
 
     onMouseEnter(event: MouseEvent): void {
@@ -67,15 +72,16 @@ export class SvgMap implements OnInit {
 
         if(clickedCountryId) {
 
-            this.apiService.constructApiUrl(clickedCountryId).subscribe(
-                (data: any) => {
+            this.apiService.getWorldBankApiData(clickedCountryId).subscribe({
+                next: (data: any) => {
                     this.selectedCountryData = data
+                    this.clickedCountry.emit(data);
                     console.log("API Response: ", data);
                 },
-                (error) => {
+                error: (error) => {
                     console.error('Error fetching data from WorldBank API', error);
                 }
-            );
+        });
             
         } else {
             alert(`You're lost at sea! Please make your way to land.`)
