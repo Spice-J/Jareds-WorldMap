@@ -6,13 +6,10 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'http://api.worldbank.org/v2/country/?format=json';
-
   constructor(private http: HttpClient) {}
 
-  getWoldbankApiData(idIso2Code: string): Observable<any> {
-    const buildUrl = `${this.baseUrl}/country/${idIso2Code}/?format=json`;
-
-    return this.http.get(buildUrl);
+  constructApiUrl(clickedCountryId: string): Observable<any> {
+    const apiUrl = `http://api.worldbank.org/v2/country/${clickedCountryId}?format=json`;
+    return this.http.get(apiUrl);
   }
 }
