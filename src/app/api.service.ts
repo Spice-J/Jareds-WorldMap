@@ -9,7 +9,7 @@ export class ApiService {
   constructor(private http: HttpClient) {}
 
   constructApiUrl(clickedCountryId: string): Observable<any> {
-    const apiUrl = `http://api.worldbank.org/v2/country/${clickedCountryId}?format=json`;
+    const apiUrl = `https://api.worldbank.org/v2/country/${clickedCountryId}?format=json`;
     return this.http.get(apiUrl);
   }
 }
