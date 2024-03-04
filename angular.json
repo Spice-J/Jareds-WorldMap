@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "d280pa": {
+    "Jareds-WorldMap": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/d280pa",
+            "outputPath": "dist/Jareds-WorldMap",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -62,10 +62,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "d280pa:build:production"
+              "buildTarget": "Jareds-WorldMap:build:production"
             },
             "development": {
-              "buildTarget": "d280pa:build:development"
+              "buildTarget": "Jareds-WorldMap:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -73,7 +73,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "buildTarget": "d280pa:build"
+            "buildTarget": "Jareds-WorldMap:build"
           }
         },
         "test": {
