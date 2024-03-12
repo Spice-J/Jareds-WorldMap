@@ -42,6 +42,7 @@ export class SvgMap implements OnInit {
         })
     }
 
+    //Method attaches mouseenter and mouseleave events to svg paths
     addHoverEffect(): void {
         const svgElement: SVGElement | null = this.svgContainer.nativeElement.querySelector('svg');
         
@@ -57,17 +58,20 @@ export class SvgMap implements OnInit {
         }
     }
 
+    //changes hovered country fill and changes cursor to pointer
     onMouseEnter(event: MouseEvent): void {
         const hoverElement = event.target as SVGElement;
         hoverElement.style.fill = '#a26413';
         hoverElement.style.cursor = 'pointer';
     }
 
+    //reverts country fill color on mouseleave
     onMouseLeave(event: MouseEvent): void {
         const hoverElement = event.target as SVGElement;
         hoverElement.style.fill = '#000000';
     }
 
+    //Method to change border color for all paths in svg
     changeBorderColor(): void {
         const svgElement: SVGElement = this.svgContainer.nativeElement;
         const countryPaths = svgElement.querySelectorAll('path');

@@ -5,6 +5,8 @@ import { Observable, catchError, throwError } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+//API service to access worldbank API and build appropriate url based on the clicked country's path id value. Handles errors.
 export class ApiService {
   private baseUrl = 'https://api.worldbank.org/v2';
 

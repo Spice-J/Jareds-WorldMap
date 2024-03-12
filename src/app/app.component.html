@@ -1,12 +1,15 @@
 <div id="title">
   <h1>Jared's World Map</h1>
 </div>
+
+<!--World Map/API Data container-->
 <div id="container">
   <div id="columns">
+    <!--World Map Container-->
     <div class="worldmap">
       <app-world-map (clickedCountry)="displayData($event)"></app-world-map>
     </div>
-
+    <!--Display API Data Container-->
     <div class="information">
       <div *ngIf="selectedCountryData">
         <h2>{{ selectedCountryData[1][0].name }}</h2>

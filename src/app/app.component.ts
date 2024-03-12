@@ -14,6 +14,8 @@ import { NgIf } from '@angular/common';
 })
 export class AppComponent {
   title = `Jared's World Map`;
+
+  //Access API data from world-map component to display
   selectedCountryData: any = null;
 
   displayData(data: any){

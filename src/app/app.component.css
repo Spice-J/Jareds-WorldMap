@@ -31,7 +31,6 @@ h2 {
 .worldmap {
     flex: 0 0 60%;
     align-items: start;
-
 }
 
 .information {
@@ -39,5 +38,4 @@ h2 {
     margin: 2rem 4rem;
     padding: 2rem 4rem ;
     height: min-content;
-    
 }
