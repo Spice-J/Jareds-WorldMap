@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+* {
+    background-color: #2f4f4f;
+    color: #1a1a1a;
+    font-family:fantasy
+}
+
+h1 {
+    font-size: 54px;
+}
+
+h2 {
+    font-size: 40px;
+}
+
+h3 {
+    font-size: 24px;
+}

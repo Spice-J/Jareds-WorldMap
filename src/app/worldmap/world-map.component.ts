@@ -4,13 +4,14 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 import { error } from 'console';
 import { ApiService } from '../api.service';
 import { emit } from 'process';
+import { NgIf } from '@angular/common';
 
 
 
 @Component({
     selector: 'app-world-map',
     standalone: true,
-    imports: [],
+    imports: [NgIf],
     templateUrl: './world-map.component.html',
     styleUrl: './world-map.component.css'
 })
@@ -31,6 +32,7 @@ export class SvgMap implements OnInit {
 
     ngAfterViewInit(): void {
         this.addHoverEffect();
+        this.changeBorderColor();
       }
 
     //Method gets world-map.svg, makes safe to render with sanitizer. Assigns to property svgContent.
@@ -57,12 +59,23 @@ export class SvgMap implements OnInit {
 
     onMouseEnter(event: MouseEvent): void {
         const hoverElement = event.target as SVGElement;
-        hoverElement.style.fill = '#CC5500';
+        hoverElement.style.fill = '#a26413';
+        hoverElement.style.cursor = 'pointer';
     }
 
     onMouseLeave(event: MouseEvent): void {
         const hoverElement = event.target as SVGElement;
         hoverElement.style.fill = '#000000';
+    }
+
+    changeBorderColor(): void {
+        const svgElement: SVGElement = this.svgContainer.nativeElement;
+        const countryPaths = svgElement.querySelectorAll('path');
+        const countryPathsArray = Array.from(countryPaths)
+
+        countryPathsArray.forEach((path) => {
+            path.setAttribute('stroke', '#2f4f4f')
+        })
     }
 
     //Click event handler sets clickedElement to DOM target event and sets contryCode to the clickedElemnts id attribute.
@@ -75,8 +88,8 @@ export class SvgMap implements OnInit {
             this.apiService.getWorldBankApiData(clickedCountryId).subscribe({
                 next: (data: any) => {
                     this.selectedCountryData = data
-                    this.clickedCountry.emit(data);
-                    console.log("API Response: ", data);
+                    this.clickedCountry.emit(this.selectedCountryData);
+                    console.log("API Response: ", this.clickedCountry);
                 },
                 error: (error) => {
                     console.error('Error fetching data from WorldBank API', error);
@@ -84,7 +97,7 @@ export class SvgMap implements OnInit {
         });
             
         } else {
-            alert(`You're lost at sea! Please make your way to land.`)
+            alert(`You're lost at sea! Please click on land to learn more.`)
         }
         
     }

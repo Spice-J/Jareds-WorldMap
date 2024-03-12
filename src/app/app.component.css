@@ -1,15 +1,43 @@
+#title {
+    display: flex;
+    background-color: #798f8f5b;
+    margin: 0 0 2rem 0;
+}
+
+h1 {
+    background-color: #798f8f00;
+    padding-left: 6vw;
+}
+
+h2 {
+    color: #a26413;
+}
+
+#container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+}
+
 #columns {
     display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    width: 100%;
+    max-width: 1600px;
 }
 
 .worldmap {
-    width: 90%;
-    padding: 0 3rem;
+    flex: 0 0 60%;
+    align-items: start;
+
 }
 
 .information {
-    margin: 1rem 1rem;
-    padding: 2rem 3rem ;
-    background-color: beige;
+    flex: 1 1 auto;
+    margin: 2rem 4rem;
+    padding: 2rem 4rem ;
     height: min-content;
+    
 }

@@ -1,8 +1,21 @@
-<div id="columns">
-  <div class="worldmap">
-    <app-world-map></app-world-map>
-  </div>
+<div id="title">
+  <h1>Jared's World Map</h1>
+</div>
+<div id="container">
+  <div id="columns">
+    <div class="worldmap">
+      <app-world-map (clickedCountry)="displayData($event)"></app-world-map>
+    </div>
 
-  <div class="information">
+    <div class="information">
+      <div *ngIf="selectedCountryData">
+        <h2>{{ selectedCountryData[1][0].name }}</h2>
+        <h3>Region: {{ selectedCountryData[1][0].region.value }}</h3>
+        <h3>Capital: {{ selectedCountryData[1][0].capitalCity }}</h3>
+        <h3>Income Level: {{ selectedCountryData[1][0].incomeLevel.value }}</h3>
+        <h3>Latitude: {{ selectedCountryData[1][0].latitude }}</h3>
+        <h3>Longitude: {{ selectedCountryData[1][0].longitude }}</h3>
+      </div>
+    </div>
   </div>
 </div>

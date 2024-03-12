@@ -1,6 +1,3 @@
-<h1>Jared's World Map</h1>
-
-
 <!--
     div to hold svg
     class references world-map.component.ts
@@ -10,12 +7,3 @@
 -->
 <div class="app-world-map" #svgContainer [innerHTML]="svgContent" (click)="onCountryClick($event)">
 </div>
-
-   <!-- @for (post of data; track post.name) {
-        <h3>{{ data[1][0].name}}</h3>
-        <h3>{{ data[1][0].capitalCity }}</h3>
-        <h3>{{ data[1][0].region.value }}</h3>
-        <h3>{{ data[1][0].incomeLevel.value }}</h3>
-        <h3>{{ data[1][0].latitude }}</h3>
-        <h3>{{ data[1][0].longitude }}</h3>
-    }-->
