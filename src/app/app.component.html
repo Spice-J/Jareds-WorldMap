@@ -11,6 +11,9 @@
     </div>
     <!--Display API Data Container-->
     <div class="information">
+      <div *ngIf="!selectedCountryData">
+        <h2>{{clickText}}</h2>
+      </div>
       <div *ngIf="selectedCountryData">
         <h2>{{ selectedCountryData[1][0].name }}</h2>
         <h3>Region: {{ selectedCountryData[1][0].region.value }}</h3>

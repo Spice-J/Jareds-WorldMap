@@ -17,6 +17,7 @@ export class AppComponent {
 
   //Access API data from world-map component to display
   selectedCountryData: any = null;
+  clickText: any = 'Click a country to see information.'
 
   displayData(data: any){
     this.selectedCountryData = data
